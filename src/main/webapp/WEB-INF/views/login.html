@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+    <head>
+	<meta charset="UTF-8"/>
+        <title>Spring javaConfig Sample</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    </head>
+    <body>
+        <h1>Login Page</h1>
+	<div th:if="${param.error}" class="alert">
+	    Invalid username and password.
+	</div>
+	<div th:if="${param.logout}" class="alert">
+	    You have been logged out.
+	</div>
+	<form name="f" th:action="@{/login}" method="POST">
+	    <label for="username">Username</label>
+	    <input type="text" id="username" name="username"/>
+	    <label for="password">Password</label>
+	    <input type="password" id="password" name="password"/>
+	    <button>Login</button>
+	    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+	</form>
+    </body>
+</html>

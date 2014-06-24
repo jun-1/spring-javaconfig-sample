@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+    <head>
+	<meta charset="UTF-8"/>
+        <title>Spring javaConfig Sample</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+	    $(document).ready(function() {
+		$('button').on('click', function() {
+		    $.get('./test')
+			    .then(function(data) {
+				alert(JSON.parse(data).message);
+			    })
+			    .fail(function(error) {
+				alert(error.status + ':' + error.statusText);
+			    });
+		});
+	    });
+	</script>
+    </head>
+    <body>
+        <h1>Spring javaConfig Sample</h1>
+	<a href="./member">member page</a>
+	<button type="button">Ajax Test</button>
+    </body>
+</html>
