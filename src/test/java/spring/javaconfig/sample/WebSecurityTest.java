@@ -7,12 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
-import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
-import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
-import org.springframework.test.context.web.ServletTestExecutionListener;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -32,12 +27,6 @@ import static org.hamcrest.CoreMatchers.is;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {WebSecurityConfig.class, WebMvcConfig.class})
 @WebAppConfiguration
-@TestExecutionListeners(listeners = {
-	ServletTestExecutionListener.class,
-	DependencyInjectionTestExecutionListener.class,
-	DirtiesContextTestExecutionListener.class,
-	TransactionalTestExecutionListener.class
-})
 public class WebSecurityTest {
 
 	@Autowired
